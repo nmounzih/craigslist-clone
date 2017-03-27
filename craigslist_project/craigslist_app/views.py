@@ -21,9 +21,10 @@ def home(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = MainForm()
-    profile = Profile.objects.get(user_id=request.user.id)
-    listings = Listing.objects.get(owner_id=profile.user_id)
-    context = {'username': request.user.username, 'listings': listings}
+    #commenting out attempt to get list on user's homepage
+    # profile = Profile.objects.get(user_id=request.user.id)
+    # listings = Listing.objects.get(owner_id=profile.user_id)
+    context = {'username': request.user.username}#'listings': listings
     return render(request, "craigslist_app/home.html", context)
 
 
