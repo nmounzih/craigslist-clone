@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset="utf-8">
+    <title>Main Page</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel='stylesheet' href='main.css'>
+    </head>
+    <body>
+      <center><h1>raleigh/durham/CH</h1></center>
+    <div class='container'>
+      <div class = 'row'>
+        <div class='col-md-2'>
+          <form action="/craigslist_app/home/" method="post">
+          <label for="main"></label>
+          {% csrf_token %}
+          {{ form }}
+          <input type="submit" value="My Account"></div>
+      </form>
+        <div class='col-md-3' style='background-color:#DEE0E0'>community</div>
+        <div class='col-md-3'style='background-color:#DEE0E0'>for sale</div>
+        <div class='col-md-3'style='background-color:#DEE0E0'>jobs</div>
+        <div class='col-md-1'style='background-color:#DEE0E0'>location</div>
+      </div>
+      <div class = 'row'>
+        <div class='col-md-2'>
+          <form action="/craigslist_app/create_listing/" method="post">
+          <label for="main"></label>
+          {% csrf_token %}
+          {{ form }}
+          <input type="submit" value="post to classifieds"></div>
+      </form>
+          </div>
+        <div class='col-md-3'></div>
+        <div class='col-md-3'></div>
+        <div class='col-md-3'></div>
+        <div class='col-md-1'></div>
+      </div>
+      <div class = 'row'>
+        <div class='col-md-2'></div>
+        <div class='col-md-3'><a href='/craigslist_app/pets/'>pets</a></div>
+        <div class='col-md-3'><a href ='/craigslist_app/subcategory/'>coachella tickets</a></div>
+        <div class='col-md-3'><a href='/craigslist_app/subcategory/'>medical/health</a></div>
+        <div class='col-md-1'>Santa Barbara</div>
+      </div>
+      <div class = 'row'>
+        <div class='col-md-2'></div>
+        <div class='col-md-3'><a href='/craigslist_app/subcategory/'>lost+found</a></div>
+        <div class='col-md-3'><a href='/craigslist_app/subcategory/'>books</a></div>
+        <div class='col-md-3'><a href='/craigslist_app/subcategory/'>food/ bev/ hosp</a></div>
+        <div class='col-md-1'>Honolulu</div>
+      </div>
+  </body>
+  </html>
