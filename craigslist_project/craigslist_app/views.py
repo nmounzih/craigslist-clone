@@ -21,8 +21,9 @@ def home(request):
     # if a GET (or any other method) we'll create a blank form
     else:
         form = MainForm()
-
-    context = {'username': request.user.username}
+    profile = Profile.objects.get(user_id=request.user.id)
+    listings = Listing.objects.get(owner_id=profile.user_id)
+    context = {'username': request.user.username, 'listings': listings}
     return render(request, "craigslist_app/home.html", context)
 
 
@@ -68,7 +69,25 @@ def new_listing(request):
     return render(request, 'listing.html', {'form': form})
 
 
-def subcategory_view(request):
-    listings = Listing.objects.filter(subcategory=1)
+def pets_subcategory_view(request, subcategory=1):
+    listings = Listing.objects.filter(subcategory_id=subcategory)
+    context = {'listings': listings}
+    return render(request, 'craigslist_app/subcategory.html', context)
+
+
+def lost_subcategory_view(request, subcategory=2):
+    listings = Listing.objects.filter(subcategory_id=subcategory)
+    context = {'listings': listings}
+    return render(request, 'craigslist_app/subcategory.html', context)
+
+
+def ticket_subcategory_view(request, subcategory=3):
+    listings = Listing.objects.filter(subcategory_id=subcategory)
+    context = {'listings': listings}
+    return render(request, 'craigslist_app/subcategory.html', context)
+
+
+def books_subcategory_view(request, subcategory=4):
+    listings = Listing.objects.filter(subcategory_id=subcategory)
     context = {'listings': listings}
     return render(request, 'craigslist_app/subcategory.html', context)
