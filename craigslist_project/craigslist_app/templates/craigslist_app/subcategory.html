@@ -7,7 +7,7 @@
   <body>
     {{subcategory.name}}
     {% for listing in listings %}
-    <li>{{listing}}</li>
+    <li><a href='{%url 'listing' listing.id%}'>{{listing}}</a></li>
     {% endfor %}
   </body>
 </html>

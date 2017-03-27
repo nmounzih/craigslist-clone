@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    {% load staticfiles %}
+    <h1>View listing</h1>
+    {{listing.name}} <br>
+    {{listing.description}} <br>
+    {{listing.owner}} <br>
+    {{listing.date_created}} <br>
+    {{listing.subcategory}} <br>
+    {{listing.city}} <br>
+<img src='/media/{{listing.picture}}'> 
+
+  </body>
+</html>

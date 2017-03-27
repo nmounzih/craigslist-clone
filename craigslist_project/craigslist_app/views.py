@@ -92,3 +92,8 @@ def books_subcategory_view(request, subcategory=4):
     listings = Listing.objects.filter(subcategory_id=subcategory)
     context = {'listings': listings}
     return render(request, 'craigslist_app/subcategory.html', context)
+
+
+def view_listing(request, id):
+    context = {'listing': Listing.objects.get(id=id)}
+    return render(request, 'craigslist_app/view_listing.html', context)
