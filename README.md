@@ -1,5 +1,4 @@
 # craigslist-clone
-This was an attempt to make an app like craigslist using Python and Django. The app has the ability to create a new user and then login with that user. Right now the app has a bug that shows an error after you create a new user but that user will be saved and you can go back and login with the credentials you made.
 
 A user has the ability to look at listings underneath subcategories. At this time, the categories do not have functions other than labels. That will be added later.
 
@@ -10,3 +9,26 @@ At this time, only the subcategories under 'community' and 'for sale' are links.
 A user can make a new listing but only if the admin gives them permission. Still figuring out how to automatically gives new users basic permissions. But once admin gives the permission, a user can make a posting and add an image. Since I haven't gotten listing details to work yet, not sure if the image will show but so far it looks right. The image showed on github when I pushed the changes.
 
 There a lot of bugs that need to be fixed and a lot of functionality that needs to be added. Work in progress.
+
+# Project Title
+
+This is a clone of the popular site craigslist. The app has the ability to create a new user and login. The user is then taken to a home page where it has a list of all the listings they've posted. A user can then navigate to the main listings page. They can browse the listings underneath the subcategories (food/bev/hosp and medical/health do not have templates yet but the others work fine). A user can also post a new listing.
+
+## Getting Started
+
+This app runs on the local server.
+
+### Prerequisites
+
+See requirements.txt file
+
+
+## Built With
+
+* Python3
+* Django
+
+
+## Authors
+
+* Nadia Mounzih
