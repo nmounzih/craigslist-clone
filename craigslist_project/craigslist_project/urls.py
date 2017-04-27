@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^craigslist_app/', include('craigslist_app.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^login/$', auth_views.login, name='login'),
+    url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^signup/$', craigslist_app_views.signup, name='signup'),
 ]
 
