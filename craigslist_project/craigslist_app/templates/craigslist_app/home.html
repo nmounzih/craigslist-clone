@@ -12,12 +12,15 @@
     <label for="main"></label>
     {% csrf_token %}
     {{ form }}
-    <h2><input type="submit" value="Main"></h2>
+    <h2><button type="submit" class='btn btn-primary' value="Main">Main</button></h2>
 </form>
     </p>
+    <!-- <button type='button' class='btn btn-default'><a href='./main'>Main</a></button> -->
   </center>
     <p><h3>Account history:</h3>
-
+      <p>{% for listing in listings %}</p>
+        <ol>{{ listing.name }}</ol>
+        {% endfor %}
       <!-- <ol> {{listings}}</ol> -->
 
   </body>

@@ -4,27 +4,20 @@ from .forms import MainForm, SignUpForm, ListingForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.models import User
-from .models import Subcategory, Category, Listing, Profile
+from .models import Subcategory, Category, Listing
+from django.db import transaction
 
 
-def home(request):
+def home(request, user_id=''):
+    user_id = request.user.id
+    listings = Listing.objects.filter(owner_id=user_id)
     if request.method == 'POST':
-        # create a form instance and populate it with data from the request:
         form = MainForm(request.POST)
-        # check whether it's valid:
         if form.is_valid():
-            # process the data in form.cleaned_data as required
-            # ...
-            # redirect to a new URL:
             return redirect('craigslist_app/main')
-
-    # if a GET (or any other method) we'll create a blank form
     else:
         form = MainForm()
-    #commenting out attempt to get list on user's homepage
-    # profile = Profile.objects.get(user_id=request.user.id)
-    # listings = Listing.objects.get(owner_id=profile.user_id)
-    context = {'username': request.user.username}#'listings': listings
+    context = {'username': request.user.username, 'listings': listings}
     return render(request, "craigslist_app/home.html", context)
 
 
@@ -34,16 +27,16 @@ def main(request):
 
 def signup(request):
     if request.method == 'POST':
-        form = SignUpForm(request.POST)
+        form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
-            return redirect('craigslist_app/home')
+            return redirect('home')
     else:
-        form = SignUpForm()
+        form = UserCreationForm()
     return render(request, 'signup.html', {'form': form})
 
 
@@ -52,16 +45,18 @@ def update_profile(request, user_id):
     user.save()
 
 
-def new_listing(request):
+def new_listing(request, subcategory='', user_id=''):
+    user_id = request.user.id
     if request.method == 'POST':
         form = ListingForm(request.POST, request.FILES)
         if form.is_valid():
             name = form.cleaned_data.get('name')
             description = form.cleaned_data.get('description')
             picture = form.cleaned_data.get('picture')
-            owner = Profile.objects.get(pk=1)
-            subcategory = Subcategory.objects.get(pk=1)
+            owner = User.objects.get(id=user_id)
+            subcategory = form.cleaned_data.get('subcategory')
             city = form.cleaned_data.get('city')
+            print(name, description, picture, owner, subcategory, city)
             listing = Listing(name=name, description=description, picture=picture, owner=owner, subcategory=subcategory, city=city)
             listing.save()
             return redirect('/craigslist_app/home')

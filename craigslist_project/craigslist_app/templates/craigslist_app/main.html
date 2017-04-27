@@ -3,52 +3,52 @@
   <head>
     <meta charset="utf-8">
     <title>Main Page</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel='stylesheet' href='main.css'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- <link rel='stylesheet' href='main.css'> -->
     </head>
     <body>
       <center><h1>raleigh/durham/CH</h1></center>
     <div class='container'>
-      <div class = 'row'>
+      <div class ='row'>
         <div class='col-md-2'>
           <form action="/craigslist_app/home/" method="post">
           <label for="main"></label>
           {% csrf_token %}
           {{ form }}
-          <input type="submit" value="My Account"></div>
-      </form>
+          <button type="submit" class='btn btn-primary' value="My Account">My Account</button></form></div>
+
         <div class='col-md-3' style='background-color:#DEE0E0'>community</div>
         <div class='col-md-3'style='background-color:#DEE0E0'>for sale</div>
         <div class='col-md-3'style='background-color:#DEE0E0'>jobs</div>
         <div class='col-md-1'style='background-color:#DEE0E0'>location</div>
       </div>
-      <div class = 'row'>
+      <div class ='row'>
         <div class='col-md-2'>
           <form action="/craigslist_app/create_listing/" method="post">
           <label for="main"></label>
           {% csrf_token %}
           {{ form }}
-          <input type="submit" value="post to classifieds"></div>
+          <button type="submit" class='btn btn-primary' value="post to classifieds">Post to classifieds</button></div>
       </form>
-          </div>
-        <div class='col-md-3'></div>
-        <div class='col-md-3'></div>
-        <div class='col-md-3'></div>
-        <div class='col-md-1'></div>
+        <div class='col-md-3'> </div>
+        <div class='col-md-3'> </div>
+        <div class='col-md-3'> </div>
+        <div class='col-md-1'> </div>
       </div>
-      <div class = 'row'>
-        <div class='col-md-2'></div>
+      <div class ='row'>
+        <div class='col-md-2'><button type='button' class='btn btn-default'><a href='/logout'>Logout</a></button></div>
         <div class='col-md-3'><a href='/craigslist_app/pets/'>pets</a></div>
         <div class='col-md-3'><a href ='/craigslist_app/coachella_tickets/'>coachella tickets</a></div>
         <div class='col-md-3'><a href='/craigslist_app/subcategory/'>medical/health</a></div>
         <div class='col-md-1'>Santa Barbara</div>
       </div>
-      <div class = 'row'>
+      <div class ='row'>
         <div class='col-md-2'></div>
         <div class='col-md-3'><a href='/craigslist_app/lost_and_found/'>lost+found</a></div>
         <div class='col-md-3'><a href='/craigslist_app/books/'>books</a></div>
         <div class='col-md-3'><a href='/craigslist_app/subcategory/'>food/ bev/ hosp</a></div>
         <div class='col-md-1'>Honolulu</div>
       </div>
+    </div>
   </body>
   </html>
